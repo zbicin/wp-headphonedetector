@@ -1,20 +1,21 @@
-﻿using System;
+﻿using HeadphonesDetector.Resources;
+using Microsoft.Phone.Controls;
+using Microsoft.Phone.Shell;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
-using Microsoft.Phone.Controls;
-using Microsoft.Phone.Shell;
-using HeadphonesDetector.Resources;
 using Windows.Phone.Media.Devices;
 
 namespace HeadphonesDetector
 {
     public partial class MainPage : PhoneApplicationPage
     {
-        public String HeadphonesState;
+        private string endpointName { get; set; }
+        public AudioPathResolver audioPathResolver { get; set; }
 
         // Constructor
         public MainPage()
@@ -24,37 +25,23 @@ namespace HeadphonesDetector
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
 
-           
+            //this.endpointName = AudioEndPointToString(AudioRoutingManager.GetDefault().GetAudioEndpoint());
+            //tbEndpointName.DataContext = this.endpointName;
+            audioPathResolver = new AudioPathResolver();
+            tbEndpointName.DataContext = audioPathResolver;
         }
 
         private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Load");
-            //(this.LayoutRoot.DataContext as AudioPathResolver).AddNotificationHandler();
+            audioPathResolver.AddNotificationHandler();
         }
 
         private void PhoneApplicationPage_Unloaded(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Unload");
-            //(this.LayoutRoot.DataContext as AudioPathResolver).RemoveNotificationHandler();
-        
-
+            audioPathResolver.RemoveNotificationHandler();
         }
 
-        private void btnTest_Click(object sender, RoutedEventArgs e)
-        {
-            AudioRoutingEndpoint audioRoutingEndpoint = AudioRoutingManager.GetDefault().GetAudioEndpoint();
-            
-            if (audioRoutingEndpoint == AudioRoutingEndpoint.Default
-                || audioRoutingEndpoint == AudioRoutingEndpoint.Speakerphone)
-            {
-                MessageBox.Show("Speakers on!");
-            }
-            else
-            {
-                MessageBox.Show("Headphones plugged in");
-            }
-        }
+      
 
         // Sample code for building a localized ApplicationBar
         //private void BuildLocalizedApplicationBar()

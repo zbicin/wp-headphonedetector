@@ -104,5 +104,10 @@ namespace HeadphonesDetector
             }
             return audioEndPointString;
         }
+
+        public override string ToString()
+        {
+            return AudioPath;
+        }
     }
 }
