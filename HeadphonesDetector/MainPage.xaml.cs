@@ -42,6 +42,11 @@ namespace HeadphonesDetector
             headsetResolver.RemoveNotificationHandler();
         }
 
+        private void miAbout_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("©2014 Krzysztof Zbiciński\r\n\r\nFeel free to contact me: fistasheq@gmail.com.", "About the author", MessageBoxButton.OK);
+        }
+
       
 
         // Sample code for building a localized ApplicationBar
