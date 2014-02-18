@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
   <DefaultLanguage xmlns="" code="en-US" />
-  <App xmlns="" ProductID="{3bbf8011-56e1-4510-ad59-b5da236a5596}" Title="HeadphonesDetector" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="HeadphonesDetector author" Description="Sample description" Publisher="HeadphonesDetector" PublisherID="{c993dbf3-bbc0-49e4-9ce7-363826a908e2}">
+  <App xmlns="" ProductID="{3bbf8011-56e1-4510-ad59-b5da236a5596}" Title="Headphones Detector" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Krzysztof Zbiciński" Description="Application showing whether the headphones are plugged in or not. It prevents from playing your music accidentaly from the loudspeaker." Publisher="Krzysztof Zbiciński" PublisherID="{c993dbf3-bbc0-49e4-9ce7-363826a908e2}">
     <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
@@ -20,7 +20,7 @@
           <SmallImageURI IsRelative="true" IsResource="false">Assets\Tiles\FlipCycleTileSmall.png</SmallImageURI>
           <Count>0</Count>
           <BackgroundImageURI IsRelative="true" IsResource="false">Assets\Tiles\FlipCycleTileMedium.png</BackgroundImageURI>
-          <Title>HeadphonesDetector</Title>
+          <Title>Headphones Detector</Title>
           <BackContent>
           </BackContent>
           <BackBackgroundImageURI>
