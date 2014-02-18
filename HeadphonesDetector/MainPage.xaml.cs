@@ -15,7 +15,7 @@ namespace HeadphonesDetector
     public partial class MainPage : PhoneApplicationPage
     {
         private string endpointName { get; set; }
-        public AudioPathResolver audioPathResolver { get; set; }
+        private IsHeadsetResolver headsetResolver { get; set; }
 
         // Constructor
         public MainPage()
@@ -27,18 +27,19 @@ namespace HeadphonesDetector
 
             //this.endpointName = AudioEndPointToString(AudioRoutingManager.GetDefault().GetAudioEndpoint());
             //tbEndpointName.DataContext = this.endpointName;
-            audioPathResolver = new AudioPathResolver();
-            tbEndpointName.DataContext = audioPathResolver;
+            headsetResolver = new IsHeadsetResolver();
+            tbDescription.DataContext = headsetResolver;
+            tbIcon.DataContext = headsetResolver;
         }
 
         private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
         {
-            audioPathResolver.AddNotificationHandler();
+            headsetResolver.AddNotificationHandler();
         }
 
         private void PhoneApplicationPage_Unloaded(object sender, RoutedEventArgs e)
         {
-            audioPathResolver.RemoveNotificationHandler();
+            headsetResolver.RemoveNotificationHandler();
         }
 
       

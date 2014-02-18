@@ -93,7 +93,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AudioPathResolver.cs" />
+    <Compile Include="IsHeadsetToDescriptionConverter.cs" />
+    <Compile Include="IsHeadsetToIconConverter.cs" />
+    <Compile Include="IsHeadsetResolver.cs" />
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
