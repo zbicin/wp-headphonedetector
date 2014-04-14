@@ -38,7 +38,7 @@ namespace HeadphonesDetector
 
         private void miAbout_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("©2014 Krzysztof Zbiciński\n\nFeel free to contact me: k.zbicinski@gmail.com.", "About the author", MessageBoxButton.OK);
+            MessageBox.Show("Prevent becoming an accidental bus DJ.\n\n©2014 Krzysztof Zbiciński\n\nFeel free to contact me: k.zbicinski@gmail.com.", "Headphones Status", MessageBoxButton.OK);
         }
 
     }
