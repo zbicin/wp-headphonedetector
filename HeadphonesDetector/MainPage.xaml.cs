@@ -38,25 +38,8 @@ namespace HeadphonesDetector
 
         private void miAbout_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("©2014 Krzysztof Zbiciński\n\nFeel free to contact me: fistasheq@gmail.com.", "About the author", MessageBoxButton.OK);
+            MessageBox.Show("©2014 Krzysztof Zbiciński\n\nFeel free to contact me: k.zbicinski@gmail.com.", "About the author", MessageBoxButton.OK);
         }
 
-      
-
-        // Sample code for building a localized ApplicationBar
-        //private void BuildLocalizedApplicationBar()
-        //{
-        //    // Set the page's ApplicationBar to a new instance of ApplicationBar.
-        //    ApplicationBar = new ApplicationBar();
-
-        //    // Create a new button and set the text value to the localized string from AppResources.
-        //    ApplicationBarIconButton appBarButton = new ApplicationBarIconButton(new Uri("/Assets/AppBar/appbar.add.rest.png", UriKind.Relative));
-        //    appBarButton.Text = AppResources.AppBarButtonText;
-        //    ApplicationBar.Buttons.Add(appBarButton);
-
-        //    // Create a new menu item with the localized string from AppResources.
-        //    ApplicationBarMenuItem appBarMenuItem = new ApplicationBarMenuItem(AppResources.AppBarMenuItemText);
-        //    ApplicationBar.MenuItems.Add(appBarMenuItem);
-        //}
     }
 }
