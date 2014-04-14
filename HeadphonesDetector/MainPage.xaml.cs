@@ -22,14 +22,8 @@ namespace HeadphonesDetector
         {
             InitializeComponent();
 
-            // Sample code to localize the ApplicationBar
-            //BuildLocalizedApplicationBar();
-
-            //this.endpointName = AudioEndPointToString(AudioRoutingManager.GetDefault().GetAudioEndpoint());
-            //tbEndpointName.DataContext = this.endpointName;
             headsetResolver = new IsHeadsetResolver();
-            tbDescription.DataContext = headsetResolver;
-            tbIcon.DataContext = headsetResolver;
+            DataContext = headsetResolver;
         }
 
         private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
@@ -44,7 +38,7 @@ namespace HeadphonesDetector
 
         private void miAbout_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("©2014 Krzysztof Zbiciński\r\n\r\nFeel free to contact me: fistasheq@gmail.com.", "About the author", MessageBoxButton.OK);
+            MessageBox.Show("©2014 Krzysztof Zbiciński\n\nFeel free to contact me: fistasheq@gmail.com.", "About the author", MessageBoxButton.OK);
         }
 
       

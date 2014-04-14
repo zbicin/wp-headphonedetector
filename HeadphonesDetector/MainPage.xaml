@@ -7,18 +7,17 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:HeadphonesDetector"
-    mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
     shell:SystemTray.IsVisible="True"
+    mc:Ignorable="d"
     Loaded="PhoneApplicationPage_Loaded"
     Unloaded="PhoneApplicationPage_Unloaded">
 
     <phone:PhoneApplicationPage.Resources>
-        <local:IsHeadsetToIconConverter x:Key="htiConv"/>
-        <local:IsHeadsetToDescriptionConverter x:Key="htdConv"/>
+        <local:BooleanToVisibilityConverter x:Key="BooleanToVisibility"/>
     </phone:PhoneApplicationPage.Resources>
     
     <!--LayoutRoot is the root grid where all page content is placed-->
@@ -28,40 +27,41 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <!-- LOCALIZATION NOTE:
-            To localize the displayed strings copy their values to appropriately named
-            keys in the app's neutral language resource file (AppResources.resx) then
-            replace the hard-coded text value between the attributes' quotation marks
-            with the binding clause whose path points to that string name.
 
-            For example:
-
-                Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}"
-
-            This binding points to the template's string resource named "ApplicationTitle".
-
-            Adding supported languages in the Project Properties tab will create a
-            new resx file per language that can carry the translated values of your
-            UI strings. The binding in these examples will cause the value of the
-            attributes to be drawn from the .resx file that matches the
-            CurrentUICulture of the app at run time.
-         -->
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="HEADPHONES DETECTOR" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
-            <TextBlock Text="status" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock Text="HEADPHONES STATUS" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
+            <TextBlock Visibility="Collapsed" Text="status" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <StackPanel Orientation="Vertical">
-
-                <TextBlock Text="{Binding IsHeadset, Converter={StaticResource htiConv}}" FontFamily="Segoe UI Symbol" FontSize="160" TextAlignment="Center" x:Name="tbIcon" Margin="0, 20" />
-                <TextBlock TextWrapping="Wrap"  Text="{Binding IsHeadset, Converter={StaticResource htdConv}}" x:Name="tbDescription" Style="{StaticResource PhoneTextLargeStyle}" TextAlignment="Center"  />
+            <StackPanel Orientation="Vertical"
+                        Visibility="{Binding IsHeadset, Converter={StaticResource BooleanToVisibility}, ConverterParameter=true}">
+                <TextBlock Text="&#x0001f3ba;"
+                           FontFamily="Segoe UI Symbol"
+                           FontSize="160"
+                           TextAlignment="Center"
+                           Margin="0, 24" />
+                <TextBlock TextWrapping="Wrap"
+                           Text="Watch out, no headphones attached."
+                           Style="{StaticResource PhoneTextLargeStyle}"
+                           TextAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical"
+                        Visibility="{Binding IsHeadset, Converter={StaticResource BooleanToVisibility}}">
+                <TextBlock Text="&#x0001f3a7;"
+                           FontFamily="Segoe UI Symbol"
+                           FontSize="160"
+                           TextAlignment="Center"
+                           Margin="0, 24" />
+                <TextBlock TextWrapping="Wrap"
+                           Text="Headphones attached. Put the record on!"
+                           TextAlignment="Center"
+                           Style="{StaticResource PhoneTextLargeStyle}"/>
 
             </StackPanel>
-
         </Grid>
 
         <!--Uncomment to see an alignment grid to help ensure your controls are
